@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Maya ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+  text-align: center;
+  color: #4a2c2a;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 50px 20px;
+}
+
+h1 {
+  color: #c9184a;
+  font-size: 36px;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+button {
+  background-color: #c9184a;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.hidden {
+  display: none;
+}
+
+.fade {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 22px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 0; }
+  to { transform: translateY(-100vh); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Hi Maya❤️</h1>
+
+  <p>
+    I made something small,  
+    but it comes from a very big place in my heart.
+  </p>
+
+  <button onclick="revealStory()">Click for a little surprise ✨</button>
+
+  <div id="story" class="hidden">
+    <p class="fade">
+      Out of all the paths life could’ve taken me on,  
+      my favorite one is the one that led to you.
+    </p>
+
+    <p class="fade">
+      You are my comfort, my laughter,  
+      my calm on loud days and my strength on quiet ones.
+    </p>
+
+    <h1 class="fade">Will you be my Valentine? 💌</h1>
+
+    <button onclick="finalMessage()">Yes, always 💕</button>
+
+    <p id="final" class="hidden fade">
+      Thank you for choosing me — today, tomorrow, always.  
+      I love you ❤️
+    </p>
+  </div>
+</div>
+
+<script>
+function revealStory() {
+  document.getElementById("story").classList.remove("hidden");
+}
+
+function finalMessage() {
+  document.getElementById("final").classList.remove("hidden");
+}
+
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 800);
+</script>
+
+</body>
+</html>
