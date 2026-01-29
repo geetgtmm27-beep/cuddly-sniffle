@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: linear-gradient(to bottom, #ffe6ee, #fff);
+      text-align: center;
+      padding: 40px 20px;
+      color: #b30047;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 15px auto;
+    }
+
+    button {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 12px;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 22px;
+      animation: floatUp 3s linear forwards;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-700px);
+        opacity: 0;
+      }
+    }
+
+    #noBtn {
+      position: relative;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Hi Maya ❤️</h1>
+
+  <p>
+    I made something small,  
+    but it comes from a very big place in my heart.
+  </p>
+
+  <button onclick="revealStory()">Click for a little surprise ✨</button>
+
+  <div id="story" class="hidden">
+    <p>
+      Out of all the paths life could’ve taken me on,  
+      my favorite one is the one that led to you.
+    </p>
+
+    <p>
+      You are my comfort, my laughter,  
+      my calm on loud days and my strength on quiet ones.
+    </p>
+
+    <h2>Will you be my Valentine? 💌</h2>
+
+    <button onclick="celebrate()">Yes, always 💕</button>
+    <button id="noBtn" onmouseover="runAway()">No 🙈</button>
+  </div>
+
+  <div id="final" class="hidden">
+    <h2>Thank you for choosing me ❤️</h2>
+    <p>
+      Today, tomorrow, always —  
+      I love you more than words (and code) can say.
+    </p>
+  </div>
+
+  <footer>
+    Made with love, nerves, and too many heart emojis 💘
+  </footer>
+
+  <script>
+    function revealStory() {
+      document.getElementById("story").classList.remove("hidden");
+    }
+
+    function celebrate() {
+      document.getElementById("final").classList.remove("hidden");
+
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+      }
+    }
+
+    function runAway() {
+      const btn = document.getElementById("noBtn");
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+  </script>
+
+</body>
+</html>
